@@ -5,10 +5,20 @@ import TaskItem from "@/components/taskItem"
 
 export default async function TaskList() {
   const supabase = await createClient()
-  const { data: todos, error } = await supabase
+
+  const { data: todos, error: todosError } = await supabase
     .from("todos")
     .select("*")
     .order("id", { ascending: false })
+
+  if (todosError) {
+    console.error("Error fetching todos:", todosError)
+    return <div>Error loading tasks.</div>
+  }
+
+  if (!todos || todos.length === 0) {
+    return <div>No tasks yet!</div>
+  }
 
   return (
     <ul className='flex flex-col gap-[1rem]'>
