@@ -3,6 +3,8 @@ import ThemeSwitch from "@/components/themeSwitch"
 import AuthButton from "@/components/header-auth"
 import "./globals.css"
 
+export const runtime = "edge"
+
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : "http://localhost:3000"
