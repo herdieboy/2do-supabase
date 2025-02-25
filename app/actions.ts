@@ -138,7 +138,18 @@ export async function addTask(formData: FormData) {
   const supabase = await createClient()
   const {
     data: { user },
+    error: userError,
   } = await supabase.auth.getUser()
+
+  if (userError) {
+    console.error("Error getting user:", userError)
+    return // Stop execution if there's an error fetching the user
+  }
+
+  if (!user) {
+    console.error("User is null.  Ensure user is authenticated.")
+    return // Stop execution if user is null
+  }
 
   const title = formData.get("title") as string
 
