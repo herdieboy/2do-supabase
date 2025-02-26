@@ -1,8 +1,7 @@
 import { signOutAction } from "@/app/actions"
 //import { hasEnvVars } from "@/utils/supabase/check-env-vars";
 import Link from "next/link"
-import { Badge } from "./ui/badge"
-import { Button } from "./ui/button"
+import { Button } from "@/components/ui"
 import { createClient } from "@/utils/supabase/server"
 
 export default async function AuthButton() {
@@ -16,17 +15,15 @@ export default async function AuthButton() {
     <div className='w-full flex justify-center items-center gap-4 pt-[1rem]'>
       Hey, {user.email}!
       <form action={signOutAction}>
-        <Button type='submit' variant={"outline"}>
-          Sign out
-        </Button>
+        <Button type='submit'>Sign out</Button>
       </form>
     </div>
   ) : (
-    <div className='flex gap-2'>
-      <Button asChild size='sm' variant={"outline"}>
+    <div className='w-full flex justify-center items-center gap-2 pt-[1rem]'>
+      <Button>
         <Link href='/sign-in'>Sign in</Link>
       </Button>
-      <Button asChild size='sm' variant={"default"}>
+      <Button>
         <Link href='/sign-up'>Sign up</Link>
       </Button>
     </div>

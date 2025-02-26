@@ -59,7 +59,7 @@ export default function ThemeSwitch() {
 
   return (
     <div
-      className='border border-border p-[0.5rem] rounded-full w-[5rem]'
+      className='border border-border p-[0.5rem] rounded-full w-[5rem] cursor-pointer'
       onClick={
         resolvedTheme === "light"
           ? () => setTheme("dark")

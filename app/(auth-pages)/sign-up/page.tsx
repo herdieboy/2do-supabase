@@ -1,8 +1,6 @@
 import { signUpAction } from "@/app/actions"
 import { FormMessage, Message } from "@/components/form-message"
-import { SubmitButton } from "@/components/submit-button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import { SubmitButton, Input } from "@/components/ui"
 import Link from "next/link"
 
 export default async function Signup(props: {
@@ -19,18 +17,18 @@ export default async function Signup(props: {
 
   return (
     <>
-      <form className='flex flex-col min-w-64 max-w-64 mx-auto'>
-        <h1 className='text-2xl font-medium'>Sign up</h1>
-        <p className='text-sm text text-foreground'>
+      <form className='flex flex-col'>
+        <h1>Sign up</h1>
+        <p>
           Already have an account?{" "}
-          <Link className='text-primary font-medium underline' href='/sign-in'>
+          <Link className='underline' href='/sign-in'>
             Sign in
           </Link>
         </p>
-        <div className='flex flex-col gap-2 [&>input]:mb-3 mt-8'>
-          <Label htmlFor='email'>Email</Label>
+        <div className='flex flex-col gap-[0.5rem] [&>input]:mb-[0.5rem] mt-[2rem]'>
+          <label htmlFor='email'>Email</label>
           <Input name='email' placeholder='you@example.com' required />
-          <Label htmlFor='password'>Password</Label>
+          <label htmlFor='password'>Password</label>
           <Input
             type='password'
             name='password'
