@@ -5,9 +5,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "pages:build": "npx @cloudflare/next-on-pages",
-    "preview": "pnpm run pages:build && wrangler pages dev",
-    "deploy": "pnpm run pages:build && wrangler pages deploy"
+    "preview": "opennextjs-cloudflare && wrangler dev",
+    "deploy": "opennextjs-cloudflare && wrangler deploy",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.1.1",
@@ -26,17 +26,17 @@
     "react-dom": "19.0.0"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.13.8",
+    "@opennextjs/cloudflare": "^0.5.4",
     "@tailwindcss/postcss": "^4.0.8",
     "@types/node": "22.10.2",
     "@types/react": "^19.0.2",
     "@types/react-dom": "19.0.2",
-    "eslint-plugin-next-on-pages": "^1.13.8",
     "postcss": "8.4.49",
     "tailwind-merge": "^2.5.2",
     "tailwindcss": "^4.0.8",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "5.7.2"
+    "typescript": "5.7.2",
+    "wrangler": "^3.110.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [
