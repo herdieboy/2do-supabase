@@ -4,7 +4,7 @@ import ThemeSwitch from "@/components/themeSwitch"
 import { addTask } from "@/app/actions"
 import TaskList from "@/components/taskList"
 
-export default async function ProtectedPage() {
+export default async function PrivatePage() {
   const supabase = await createClient()
 
   const {

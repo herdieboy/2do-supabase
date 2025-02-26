@@ -5,12 +5,12 @@ import "./globals.css"
 
 export const runtime = "edge"
 
-const defaultUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "http://localhost:3000"
+// const defaultUrl = process.env.VERCEL_URL
+//   ? `https://${process.env.VERCEL_URL}`
+//   : "http://localhost:3000"
 
 export const metadata = {
-  metadataBase: new URL(defaultUrl),
+  //metadataBase: new URL(defaultUrl),
   title: "Next.js and Supabase Starter Kit",
   description: "The fastest way to build apps with Next.js and Supabase",
 }
@@ -22,12 +22,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' suppressHydrationWarning>
-      <body className={`antialiased`}>
+      <body className={`antialiased`} suppressHydrationWarning>
         <Providers>
           <AuthButton />
           <div className='flex items-center flex-col bg-background h-dvh pt-[8rem]'>
             <div className='bg-container p-[3rem] rounded-[1rem] flex flex-col gap-[2rem]'>
-              <div className='w-full flex justify-center'>
+              <div
+                className='w-full flex justify-center'
+                suppressHydrationWarning
+              >
                 <ThemeSwitch />
               </div>
               {children}
