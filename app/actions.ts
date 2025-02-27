@@ -196,6 +196,6 @@ export async function deleteTask(id: string) {
   } catch (error) {
     console.error("Error deleting todo:", error)
   } finally {
-    revalidatePath("/")
+    //revalidatePath("/")
   }
 }

@@ -9,8 +9,8 @@ import "./globals.css"
 
 export const metadata = {
   //metadataBase: new URL(defaultUrl),
-  title: "Next.js and Supabase Starter Kit",
-  description: "The fastest way to build apps with Next.js and Supabase",
+  title: "2do",
+  description: "Get your life on track!",
 }
 
 export default function RootLayout({
@@ -23,7 +23,7 @@ export default function RootLayout({
       <body className={`antialiased`} suppressHydrationWarning>
         <Providers>
           <AuthButton />
-          <div className='flex items-center flex-col bg-background h-dvh pt-[8rem]'>
+          <div className='flex items-center flex-col bg-background h-dvh pt-[8rem] transition-colors'>
             <div className='bg-container p-[3rem] rounded-[1rem] flex flex-col gap-[2rem]'>
               <div
                 className='w-full flex justify-center'
