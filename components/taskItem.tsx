@@ -49,13 +49,13 @@ export default function TaskItem({
           />
         </svg>
       </button>
-      <form>
+      <form className='flex-grow'>
         <input type='hidden' name='id' value={id} />
         <input
           type='text'
           name='title'
           defaultValue={title}
-          className={`w-[20rem] px-[0.5rem] mx-[0.5rem] bg-container outline-none border-b border-transparent focus:border-border transition-[border-color] ${
+          className={`w-full px-[0.5rem] mx-[0.5rem] bg-container outline-none border-b border-transparent focus:border-border transition-[border-color] ${
             checked ? "line-through" : ""
           }`}
         />

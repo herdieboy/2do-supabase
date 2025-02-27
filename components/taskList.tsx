@@ -21,7 +21,7 @@ export default async function TaskList() {
   }
 
   return (
-    <ul className='flex flex-col gap-[1rem]'>
+    <ul className='flex flex-col gap-[1rem] w-full'>
       {todos.map((todo) => (
         <TaskItem
           key={todo.id}

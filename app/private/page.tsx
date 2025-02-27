@@ -17,7 +17,9 @@ export default async function PrivatePage() {
 
   return (
     <>
-      <h1 className='font-bold text-[2rem] select-none'>My to do list!</h1>
+      <h1 className='font-bold text-[2rem] select-none text-center'>
+        My to do list!
+      </h1>
       <form action={addTask} className='flex'>
         <input
           type='text'
