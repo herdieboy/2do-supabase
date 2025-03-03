@@ -5,7 +5,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui"
 
 export default function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(true)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   function toggleMenu() {
     setMenuOpen(!menuOpen)
