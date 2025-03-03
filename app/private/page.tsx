@@ -30,7 +30,7 @@ export default async function PrivatePage() {
         />
         <button
           type='submit'
-          className='border border-border rounded-r-[0.5rem] px-[1rem] py-[0.5rem]'
+          className='border border-border rounded-r-[0.5rem] px-[1rem] py-[0.5rem] cursor-pointer'
         >
           <svg
             xmlns='http://www.w3.org/2000/svg'

@@ -35,3 +35,33 @@ h1 {
   font-weight: bold;
   font-size: 2rem;
 }
+
+.hamburger-closed {
+  @apply ml-[-5rem] transition-[margin];
+
+  :nth-child(1) {
+    @apply transition-all h-[2px] bg-text rounded-full origin-top-left w-[1rem] group-hover:rotate-45 group-hover:w-[1.3rem];
+  }
+  :nth-child(2) {
+    @apply transition-all h-[2px] w-[1rem] bg-text rounded-full group-hover:opacity-0;
+  }
+  :nth-child(3) {
+    @apply transition-all h-[2px] w-[1rem] bg-text rounded-full origin-bottom-left group-hover:-rotate-44 group-hover:w-[1.3rem];
+  }
+}
+
+.hamburger-open {
+  :nth-child(1) {
+    @apply transition-all h-[2px] bg-text rounded-full origin-top-left group-hover:w-[1rem] rotate-45 group-hover:rotate-0 w-[1.3rem];
+  }
+  :nth-child(2) {
+    @apply transition-all h-[2px] w-[1rem] bg-text rounded-full opacity-0 group-hover:opacity-100;
+  }
+  :nth-child(3) {
+    @apply transition-all h-[2px] bg-text rounded-full origin-bottom-left group-hover:w-[1rem] -rotate-45 group-hover:rotate-0 w-[1.3rem];
+  }
+}
+
+.underline-hover {
+  @apply relative after:transition-[width] after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-[0.1rem] after:bg-text;
+}

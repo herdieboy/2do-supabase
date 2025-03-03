@@ -9,7 +9,7 @@ export default async function TaskList() {
   const { data: todos, error: todosError } = await supabase
     .from("todos")
     .select("*")
-    .order("id", { ascending: false })
+    .order("id", { ascending: true })
 
   if (todosError) {
     console.error("Error fetching todos:", todosError)

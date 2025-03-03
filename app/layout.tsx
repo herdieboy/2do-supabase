@@ -1,6 +1,6 @@
 import { Providers } from "@/app/providers"
 import ThemeSwitch from "@/components/themeSwitch"
-import AuthButton from "@/components/header-auth"
+import Navbar from "@/components/navbar"
 import "./globals.css"
 
 // const defaultUrl = process.env.VERCEL_URL
@@ -22,9 +22,9 @@ export default function RootLayout({
     <html lang='en' suppressHydrationWarning>
       <body className={`antialiased`} suppressHydrationWarning>
         <Providers>
-          <AuthButton />
-          <div className='flex items-center flex-col bg-background h-dvh pt-[8rem] transition-colors px-[1rem]'>
-            <div className='bg-container p-[3rem] px-[1rem] rounded-[1rem] flex flex-col gap-[2rem] max-w-screen'>
+          <Navbar />
+          <div className='flex items-center justify-center flex-col bg-background h-svh p-[1rem]'>
+            <div className='bg-container p-[3rem] px-[1rem] md:px-[3rem] rounded-[1rem] flex flex-col gap-[2rem] max-w-screen'>
               <div
                 className='w-full flex justify-center'
                 suppressHydrationWarning
