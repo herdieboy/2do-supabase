@@ -1,6 +1,7 @@
 "use client"
 
 import { useFormStatus } from "react-dom"
+import { deleteNote } from "@/app/actions"
 
 export function Button({
   type = "button",
@@ -38,6 +39,24 @@ export function SubmitButton({
   return (
     <Button variant='submit' type='submit' aria-disabled={pending} {...props}>
       {pending ? pendingText : children}
+    </Button>
+  )
+}
+
+export function DeleteButton({
+  children,
+  id,
+  ...props
+}: Readonly<{
+  children: React.ReactNode
+  id: string
+  [key: string]: any
+}>) {
+  const { pending } = useFormStatus()
+
+  return (
+    <Button onClick={() => deleteNote(id)} {...props}>
+      {children}
     </Button>
   )
 }

@@ -1,7 +1,7 @@
 "use server"
 
 import { createClient } from "@/utils/supabase/server"
-import TaskItem from "@/components/taskItem"
+import TaskItem from "@/components/tasks/taskItem"
 
 export default async function TaskList() {
   const supabase = await createClient()

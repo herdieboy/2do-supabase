@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useState } from "react"
-import { Button } from "@/components/ui"
+import { Button } from "@/components/ui/ui"
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -23,7 +23,7 @@ export default function Navbar() {
       <div className='flex flex-col bg-container border-l border-border grow-1 p-[2rem]'>
         <div
           onClick={toggleMenu}
-          className={`flex flex-col justify-between h-[2rem] w-[2rem] mb-[2rem] mt-[-0.5rem] ml-[-0.5rem] p-[0.5rem] group ${menuOpen ? "hamburger-open" : "hamburger-closed"}`}
+          className={`flex flex-col justify-between h-[2rem] w-[2rem] mb-[2rem] m-[-0.5rem] p-[0.5rem] group cursor-pointer ${menuOpen ? "hamburger-open" : "hamburger-closed"}`}
         >
           <div className={``}></div>
           <div className={``}></div>
@@ -39,6 +39,11 @@ export default function Navbar() {
           <li>
             <Link href='/private' className='underline-hover'>
               Todo list
+            </Link>
+          </li>
+          <li>
+            <Link href='/private/notes' className='underline-hover'>
+              Notes
             </Link>
           </li>
         </ul>

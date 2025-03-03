@@ -199,3 +199,73 @@ export async function deleteTask(id: string) {
     //revalidatePath("/")
   }
 }
+
+export async function addNote(formData: FormData) {
+  const supabase = await createClient()
+  const {
+    data: { user },
+    error: userError,
+  } = await supabase.auth.getUser()
+
+  if (userError) {
+    console.error("Error getting user:", userError)
+    return // Stop execution if there's an error fetching the user
+  }
+
+  if (!user) {
+    console.error("User is null.  Ensure user is authenticated.")
+    return // Stop execution if user is null
+  }
+
+  const title = formData.get("title") as string
+  const text = formData.get("text") as string
+
+  try {
+    const { data, error } = await supabase
+      .from("notes")
+      .insert([{ title: title, text: text, user_id: user.id }])
+      .select()
+  } catch (error) {
+    console.error("Add note failed:", error)
+  } finally {
+    redirect("/private/notes")
+  }
+}
+
+export async function deleteNote(id: string) {
+  const supabase = await createClient()
+
+  try {
+    const { data, error } = await supabase
+      .from("notes")
+      .delete()
+      .eq("id", Number(id))
+
+    console.log(id + " deleted successfully.")
+  } catch (error) {
+    console.error("Error deleting note:", error)
+  } finally {
+    redirect("/private/notes")
+  }
+}
+
+export async function editNote(formData: FormData) {
+  const supabase = await createClient()
+
+  const id = formData.get("id") as string
+  const title = formData.get("title") as string
+  const text = formData.get("text") as string
+
+  try {
+    const { data, error } = await supabase
+      .from("notes")
+      .update({ title: title, text: text })
+      .eq("id", id)
+
+    console.log(id + " updated successfully.")
+  } catch (error) {
+    console.error("Error updating note:", error)
+  } finally {
+    redirect("/private/notes")
+  }
+}

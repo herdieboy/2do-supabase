@@ -1,9 +1,9 @@
 import { createClient } from "@/utils/supabase/server"
 import { redirect } from "next/navigation"
-import { addTask } from "@/app/actions"
-import TaskList from "@/components/tasks/taskList"
+import NoteList from "@/components/notes/noteList"
+import Link from "next/link"
 
-export default async function PrivatePage() {
+export default async function Notes() {
   const supabase = await createClient()
 
   const {
@@ -17,20 +17,14 @@ export default async function PrivatePage() {
   return (
     <>
       <h1 className='font-bold text-[2rem] select-none text-center'>
-        My to do list!
+        My notes!
       </h1>
-      <form action={addTask} className='flex'>
-        <input
-          type='text'
-          name='title'
-          placeholder='Add new task'
-          className='border border-border border-r-0 rounded-l-[0.5rem] px-[1rem] w-full bg-container outline-none'
-          required
-        />
-        <button
-          type='submit'
-          className='border border-border rounded-r-[0.5rem] px-[1rem] py-[0.5rem] cursor-pointer'
+      <div className='flex justify-between border border-border bg-text text-background rounded-[0.5rem] px-[1rem] py-[0.5rem]'>
+        <Link
+          href={`/private/notes/add-note`}
+          className='flex justify-between w-full'
         >
+          <h2>Add note</h2>
           <svg
             xmlns='http://www.w3.org/2000/svg'
             fill='none'
@@ -45,9 +39,9 @@ export default async function PrivatePage() {
               d='M12 4.5v15m7.5-7.5h-15'
             />
           </svg>
-        </button>
-      </form>
-      <TaskList />
+        </Link>
+      </div>
+      <NoteList />
     </>
   )
 }
