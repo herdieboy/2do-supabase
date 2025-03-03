@@ -24,7 +24,7 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           <div className='flex items-center justify-center flex-col bg-background h-svh p-[1rem]'>
-            <div className='bg-container p-[3rem] px-[1rem] md:px-[3rem] rounded-[1rem] flex flex-col gap-[2rem] max-w-screen'>
+            <div className='bg-container border border-border p-[3rem] px-[1rem] md:px-[3rem] rounded-[1rem] flex flex-col gap-[2rem] max-w-screen'>
               <div
                 className='w-full flex justify-center'
                 suppressHydrationWarning

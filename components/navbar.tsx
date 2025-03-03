@@ -20,7 +20,7 @@ export default function Navbar() {
         className={`left-0 top-0 w-[calc(100dvw-20rem)] h-dvh ${menuOpen ? "fixed" : "hidden"}`}
       ></div>
 
-      <div className='flex flex-col bg-container grow-1 p-[2rem]'>
+      <div className='flex flex-col bg-container border-l border-border grow-1 p-[2rem]'>
         <div
           onClick={toggleMenu}
           className={`flex flex-col justify-between h-[2rem] w-[2rem] mb-[2rem] mt-[-0.5rem] ml-[-0.5rem] p-[0.5rem] group ${menuOpen ? "hamburger-open" : "hamburger-closed"}`}
